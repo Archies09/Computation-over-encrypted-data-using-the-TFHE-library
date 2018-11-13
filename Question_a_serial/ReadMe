@@ -1,0 +1,9 @@
+To Run the code on Linux machine:
+chmod +x script.sh
+./script.sh
+
+MACRO NOA present in cloud.c file is for specifying how many number of tuples should be added from start(NOA 100 is first 100 values in Total Charges column to be added)
+
+Implemented Serial Adder.
+
+Also,from given csv, it is confirm that sum will not exceed 2^32 value. Hence result is stored in 32 bit integer.

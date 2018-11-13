@@ -1,0 +1,43 @@
+1. Installation
+	https://tfhe.github.io/tfhe/installation.html
+
+sudo apt-get install build-essential cmake cmake-curses-gui
+
+Download zip	https://github.com/tfhe/tfhe/zipball/master
+
+cd tfhe
+
+cmake ../src/
+
+ccmake ../src/
+
+<See list of options>
+by default CMAKE_INSTALL_PREFIX=/usr/local
+DO NOT CHANGE IT
+Keep other options as it is.
+You may then configure which fft processor to use. If you have a recent Core i7 processor, enabling the SPQLIOS_FMA version in optimized mode whil likely give you the fastest running times. If you have an older CPU that does not support the latest FMA opcodes, you can revert to other fft processors. The nayuki-portable processor is slower, but will run on any hardware.
+
+ENABLE_SPQLIOS_AVX	works on i5
+ENABLE_SPQLIOS_FMA	works on i7
+ENABLE_NAYUKI_PORTABLE	works everywhere
+
+press c and then g to quit with generating <See Help>
+
+make
+
+sudo make install (usr/local/ needs root access)
+
+
+2.Set up Environment Variables
+
+#configure environment variables
+TFHE_PREFIX=/usr/local #the prefix where you installed tfhe
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:$TFHE_PREFIX/include
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$TFHE_PREFIX/include
+export LIBRARY_PATH=$LIBRARY_PATH:$TFHE_PREFIX/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TFHE_PREFIX/lib
+
+3.compile
+	g++ your-program.cpp -o your-program -ltfhe-spqlios-fma 
+<if illigal instruction change the flag>
+

@@ -1,0 +1,5 @@
+To Run the code on Linux machine:
+chmod +x script.sh
+./script.sh
+
+In cloud.c file, loop initiates from 9801, which indicates last 200 rows are considered for comparison with 10000.
